@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+	
+	
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/esicart</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">1234</property>
+		
+<!-- 		as queries for every db is little diff so to understand that use property dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		
+<!-- 		to create table at start and just update that after use -> update -->
+<!-- 		to create table every time use -> create -->
+		<property name="hbm2ddl.auto">update</property>
+		
+<!-- 		to show query created by hibernate use -->
+		<property name="show_sql">true</property>
+		
+		<mapping class="com.entities.User" />
+		<mapping class="com.entities.Product" />
+		<mapping class="com.entities.Category" />
+	</session-factory>
+
+</hibernate-configuration>
